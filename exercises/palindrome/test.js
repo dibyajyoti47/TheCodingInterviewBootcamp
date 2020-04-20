@@ -5,11 +5,11 @@ test('palindrome function is defined', () => {
 });
 
 test('"aba" is a palindrome', () => {
-  expect(palindrome('aba')).toBeTruthy();
+  expect(palindrome('abcdcba')).toBeTruthy();
 });
 
 test('" aba" is not a palindrome', () => {
-  expect(palindrome(' aba')).toBeFalsy();
+  expect(palindrome(' abcdcba')).toBeFalsy();
 });
 
 test('"aba " is not a palindrome', () => {

@@ -7,6 +7,43 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+/* 
+//sol-1
+function palindrome(str) {
+ return str.split('').reduce((rev,char) => char+rev,'') === str;
+}
+*/
 
+/* 
+//sol-2
+// below solution run twice as much as it needs to..
+function palindrome(str) {
+  return str.split('').every((char, i) => {
+    return char === str[str.length - i -1];
+  });
+ }
+*/
+
+/* sol-3 
+//below solution is optimized solution for the above.
+function palindrome(str) {
+  let middle = Math.round(str.length / 2);
+  const halfStr = str.substr(0,middle);
+  return halfStr.split('').every( (char, i) => char === str[str.length - i -1] ); 
+ }
+ */
+
+// sol-4
+//using for loop
+function palindrome(str) {
+  let middle = Math.floor(str.length / 2);
+  let flag = true;
+  for (let i=0; i<=middle; i++) {
+    if(str.charAt(i) !== str[str.length - i - 1]) {
+      flag = false;
+      break;
+    }
+  } 
+  return flag;
+ }
 module.exports = palindrome;
